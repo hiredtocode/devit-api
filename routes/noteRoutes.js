@@ -1,15 +1,20 @@
 const express = require('express')
 const router = express.Router()
-const notesController = require('../controllers/notesController')
+const {
+	getAllNotes,
+	createNewNote,
+	updateNote,
+	deleteNote,
+} = require('../controllers/notesController')
 // const verifyJWT = require('../middleware/varifyJWT');
 
 // router.use(verifyJWT);
 
 router
 	.route('/')
-	.get(notesController.getAllNotes)
-	.post(notesController.createNewNote)
-	.patch(notesController.updateNote)
-	.delete(notesController.deleteNote)
+	.get(getAllNotes)
+	.post(createNewNote)
+	.patch(updateNote)
+	.delete(deleteNote)
 
 module.exports = router
